@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+
+</head>
+<body>
+    <script>
+    
+        // 1. React.createElement() -> React Element
+        // 2. So sánh với document.createElemnt() -> DOM element
+
+        // 3. Thay đổi: id, className, style,...
+        // 4. Thêm: text, HTML
+        // 5. Tạo: 
+        //         <h1 tittle="Hello" class="heading">Hello guys!</h1>
+        //         = DOM và React
+
+        //DOM
+       
+        const h1DOM = document.createElement('h1'); 
+        h1DOM.title = "Hello";
+        h1DOM.className = 'heading';
+        h1DOM.innerText = 'Hello guys!';	
+
+        document.body.appendChild(h1DOM);
+
+        //REACT
+        //React.createElement(type, props, children, n) ,childeren là 1 prop
+        const h1React = React.createElement('h1', {
+            title:'Hello',
+            className: 'heading',
+        }, 'Hello guys!');
+           
+        // 6. Tạo: (= cả DOM và React)
+        // <ul>
+        // <li>Javascript</li>
+        // <li>React</li>
+        // </ul>
+
+        //DOM
+        const uDOM = document.createElement('ul');
+        
+        const liDOM1 = document.createElement('li');
+        liDOM1.innerText = 'Javascript';
+
+        const liDOM2 = document.createElement('li');
+        liDOM2.innerText = 'React';
+
+        uDOM.appendChild(liDOM1);
+        uDOM.appendChild(liDOM2);
+
+        document.body.appendChild(uDOM);
+
+        //REACT
+        //vì mỗi 1 element nằm đều là 1 react-element và cái nào nằm trong thì cái đó là con, 
+        //cái thằng children nhỏ nhất chính là Text
+       //VD; thg li sẽ là con thằng u và thằng text trong li sẽ là con của li
+        const ulReact = React.createElement(
+            'ul',
+            null,
+            React.createElement('li', null, 'Javascript'),
+            React.createElement('li', null, 'React'),
+        );
+        
+</script>
+</body>
+
+</html>

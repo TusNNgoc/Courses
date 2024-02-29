@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactDOM</title>
+</head>
+<script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> 
+
+<body>  
+
+    
+    <div id="root"></div>
+    <script>
+        //React DOM là một thư viện được ví như cầu nối giữa React và DOM
+        //RENDER UI
+    //     <div class="post-item">
+    //     <h2 title="Học React tại F8">Học ReactJS</h2>
+    //     <p>Học ReactJS từ cơ bản tới nâng cao</p>
+    // </div>
+    
+        const postItem = React.createElement(
+            'div',
+            {
+                className: 'post-item',
+            },
+            React.createElement(
+                'h2',
+                {
+                    title: 'Học React tại F8',
+                },
+                'Học ReactJS'
+            ),
+            React.createElement(
+                'p',
+                null,
+                'Học ReactJS từ cơ bản tới nâng cao'
+            )
+        );
+
+        
+        //GET ROOT ELEMENT
+                const container = document.getElementById('root');
+
+        // React-DOM -> render UI
+        // ReactDOM.render(postItem, root);
+        
+
+        //REACT@18
+        const root = ReactDOM.createRoot(container);
+        root.render(postItem);
+    </script>
+    
+</body>
+</html>
